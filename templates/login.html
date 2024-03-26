@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Mahallem - Giriş Yap
+{% endblock title %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="col-md-3 mx-auto text-center">
+<h3 class="font-weight-bold">Giriş Yap</h3>
+<hr>
+
+{% from "includes/formhelpers.html" import render_field %}
+
+<form method="post">
+    {{ render_field(form.username) }}
+    {{ render_field(form.password) }}
+    <button type="submit" class="btn btn-warning mt-2">Giriş Yap</button>
+</form>
+</div>
+{% endblock body %}

@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<br>
+<div class="col-md-3 mx-auto text-center">
+<h3>İşyeri Ekle</h3>
+<hr>
+
+{% from "includes/formhelpers.html" import render_field %}
+
+<form method="post">
+    {{ render_field(form.type, class = "form-control") }}
+    {{ render_field(form.store, class = "form-control") }}
+    {{ render_field(form.phone_number, class = "form-control") }}
+    {{ render_field(form.city, class = "form-control") }}
+    {{ render_field(form.district, class = "form-control") }}
+    {{ render_field(form.street, class = "form-control") }}
+    {{ render_field(form.address, class = "form-control") }}
+    {{ render_field(form.name, class = "form-control") }}
+    {{ render_field(form.surname, class = "form-control") }}
+    <button type="submit" class="btn btn-danger">İşyeri Ekle</button>
+</form>
+</div>
+{% endblock body %}

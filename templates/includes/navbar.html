@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-warning">
+  <img src="{{url_for('static', filename='logoo.png')}}" width="55" height="50">
+  <a class="navbar-brand mb-1" href="/" style="font-size: 25px; font-weight: bold; color:rgb(60, 60, 60)">Mahallem</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link font-weight-bold" href="/about">Hakkımızda</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link font-weight-bold" href="/services">Hizmet Al</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+
+      {% if session["logged_in"] == True %}
+      <li class="nav-item dropdown p-1 rounded" style = "margin-right:40px; background-color:rgb(55,55,55);">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:rgb(255, 193, 4)">
+          Hoşgeldin; {{session["username"]}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/dashboard">Kontrol Paneli</a>
+          <a class="dropdown-item" href="/logout">Çıkış Yap</a>
+        </div>
+      </li>
+      {% else %}
+      <li class="nav-item active">
+        <a class="nav-link" href="/login">Giriş Yap</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/register">Kayıt Ol</a>
+      </li>
+      {% endif %}
+    </ul>
+    
+  </div>
+</nav>

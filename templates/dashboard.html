@@ -1,0 +1,139 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Mahallem - Kontrol Paneli
+{% endblock title %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<div class="col-md-8 mx-auto text-center">
+    <h1 class= "lgAndDown:text-3xl smAndDown:text-2xl text-2xl font-medium title-font mb-4 h-36 font-weight-bold">Kontrol Paneli</h1>
+    <hr>
+
+    <a href="/addstore" class="btn btn-warning font-weight-bold">İşyeri Ekle</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+<div class="col-md-8 mx-auto text-center">
+  <h3 class= "lgAndDown:text-3xl smAndDown:text-2xl text-2xl font-medium title-font mb-4 h-36 font-weight-bold">Randevularım</h3>
+  <hr>
+{% if bookingOwners or bookingOwners1 or bookingOwners2%}
+<div class="col-md-12 mx-auto text-center">
+<table class="table table-striped table-dark table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"><img class="mr-3" src="{{url_for('static', filename='store.png')}}" alt="Generic placeholder image" width="32px" height="32px"></th>
+      <th scope="col">Ad Soyad / Dükkan</th>
+      <th scope="col">Telefon</th>
+      <th scope="col">İl</th>
+      <th scope="col">İlçe</th>
+      <th scope="col">Mahalle</th>
+      <th scope="col">Açık Adres</th>
+      <th scope="col">Randevu Tarihi</th>
+      <th scope="col">Problem</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for booking in bookingOwners or bookingOwners1 or bookingOwners2 %}
+    <tr>
+      <th scope="row"><img class="mr-3" src="{{url_for('static', filename='store.png')}}" alt="Generic placeholder image" width="32px" height="32px"></th>
+      <td> - {{booking.name}} {{booking.surname}} - {{booking.store}}</td>
+      <td>{{booking.phone_number}}</td>
+      <td>{{booking.city}}</td>
+      <td>{{booking.district}}</td>
+      <td>{{booking.street}}</td>
+      <td>{{booking.address}}</td>
+      {% for booking2 in bookingOwners2 %}
+      <td>{{booking2.day}} {{booking2.month}} {{booking2.year}}</td>
+      <td>{{booking2.problem}}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% else %}
+<div class = "alert alert-danger">Henüz aktif bir randevunuz bulunmuyor. </div>
+{% endif %}
+
+<br>
+<br>
+
+<div class="col-md-8 mx-auto text-center">
+    <h3 class= "lgAndDown:text-3xl smAndDown:text-2xl text-2xl font-medium title-font mb-4 h-36 font-weight-bold">Dükkanlarım</h3>
+    <hr>
+{% if masters %}
+<div class="col-md-13 mx-auto text-center">
+  <table class="table table-striped table-dark table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"><img class="mr-3" src="{{url_for('static', filename='store.png')}}" alt="Generic placeholder image" width="32px" height="32px"></th>
+        <th scope="col">Tür</th>
+        <th scope="col">Dükkan</th>
+        <th scope="col">İl</th>
+        <th scope="col">İlçe</th>
+        <th scope="col">Mahalle</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for master in masters %}
+      <tr>
+        <th scope="row"><img class="mr-3" src="{{url_for('static', filename='store.png')}}" alt="Generic placeholder image" width="32px" height="32px"></th>
+        <td>{{master.type}}</td>
+        <td>{{master.store}}</td>
+        <td>{{master.city}}</td>
+        <td>{{master.district}}</td>
+        <td>{{master.street}} Mahallesi</td>
+        <td><a href="/edit/{{master.id}}" class="btn btn-warning">Güncelle</a></td>
+        <td>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+            Sil
+          </button>
+        
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+              
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title" style="color:black;">Uyarı!</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body" style="color:black;">
+                  Silme işlemini gerçekleştirmek istediğinize emin misiniz?
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <a href="/delete/{{master.id}}" class="btn btn-warning">Onayla</a>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% else %}
+<div class = "alert alert-danger">Henüz oluşturduğunuz bir iş yeri bulunmuyor. </div>
+{% endif %}
+{% endblock body %}

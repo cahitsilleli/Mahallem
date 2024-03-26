@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Mahallem - Kayıt Ol
+{% endblock title %}
+
+{% block body %}
+{% from "includes/formhelpers.html" import render_field %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="col-md-4 mx-auto text-center" >
+<h3>Kayıt Olun</h3>
+<hr>
+<form method="post">
+    {{ render_field(form.name,class = "form-control") }}
+    {{ render_field(form.surname, class = "form-control") }}
+    {{ render_field(form.username,class = "form-control") }}
+    {{ render_field(form.email,class = "form-control") }}
+    {{ render_field(form.phone_number, class = "form-control") }}
+    {{ render_field(form.city, class = "form-control") }}
+    {{ render_field(form.district, class = "form-control") }}
+    {{ render_field(form.street, class = "form-control") }}
+    {{ render_field(form.address, class = "form-control") }}
+    {{ render_field(form.password,class = "form-control") }}
+    {{ render_field(form.confirm,class = "form-control") }}
+    <button type="submit" class="btn btn-warning">Kayıt Ol</button>
+</form>
+</div>
+{% endblock body %}

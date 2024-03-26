@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Mahallem - Anasayfa
+{% endblock title %}
+
+{% block body %}
+<!--SLIDE KARSILAMA BOLUMU-->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner rounded">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="{{url_for('static', filename='karsilama2.jpg')}}" alt="First slide" style="height:700px">
+      <div class="carousel-caption d-none d-md-block" style="margin-bottom:120px">
+        <h1 class= "mb-4 font-weight-bold" style = "font-size:100px; color:rgb(255, 193, 4);">Mahallem'e Hoşgeldiniz!</h1>
+        <h5 style = "font-size:25px;">Mahallem ile birlikte yeni taşındığınız yerlerde bulunan size en yakın ustaları kolayca bularak iletişime geçebilirsiniz</h5>
+        <div class="row justify-content-center" style="margin-top:70px">
+          <div class="col-12 col-md-10 col-lg-8" style="background-color:rgb(52,58,64); border-radius:10px;">
+            <form class="card card-sm" action="/search" method="post" style="background-color:rgb(52,58,64)">
+              <div class="card-body row no-gutters align-items-center">
+                <div class="col-auto">
+                  <i class="fas fa-search h4 text-body"></i>
+                  </div>
+                  <div class="col">
+                    <input class="form-control form-control-lg form-control-borderless" type="text" name="keyword" placeholder="Ör: Tamirci, Aydın, Efeler">
+                  </div>
+                  <div class="col-auto">
+                  <button class="btn btn-lg btn-warning ml-2" type="submit" style = "border: rgb(213,51,60);">Arama Yap</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<!--HIZMET TANITIM BOLUMU-->
+<div class = "text-center">
+  <br>
+  <h1 class= "font-weight-bold" style="color:rgb(255, 193, 4)">Hizmet Alabileceğiniz Sektörler</h1>
+  <hr>
+</div>
+<!--DENEME-->
+<div class="container marketing">
+
+  <!-- START THE FEATURETTES -->
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h1 class="featurette-heading " style="color:rgb(255, 193, 4)">Tesisatçı</h1>
+      <p class="lead font-weight-bold" >Mahallem ile birlikte Tesisat işlerinizi kolay bir şekilde herhangi bir ekstra iş gücüne gerek duymadan kolayca halledebilirsiniz.</p>
+    </div>
+    <div class="col-md-5">
+      <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="300x300" style="width: 300px; height: 300px;" src="{{url_for('static', filename='tesisat.png')}}" data-holder-rendered="true">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7 order-md-2">
+      <h1 class="featurette-heading" style="color:rgb(255, 193, 4)">Boyacı</h1>
+      <p class="lead font-weight-bold">Mahallem ile birlikte boya badana işlerinizi kolay bir şekilde herhangi bir ekstra iş gücüne gerek duymadan kolayca halledebilirsiniz.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="300x300" style="width: 300px; height: 300px;" src="{{url_for('static', filename='boyaci.png')}}" data-holder-rendered="true">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h1 class="featurette-heading" style="color:rgb(255, 193, 4)">Elektrikçi</h1>
+      <p class="lead font-weight-bold">Mahallem ile birlikte bütün elektrik işlerinizi kolay bir şekilde herhangi bir ekstra iş gücüne gerek duymadan kolayca halledebilirsiniz.</p>
+    </div>
+    <div class="col-md-5">
+      <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="300x300" style="width: 300px; height: 300px;" src="{{url_for('static', filename='elektrikci.png')}}" data-holder-rendered="true">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7 order-md-2">
+      <h1 class="featurette-heading" style="color:rgb(255, 193, 4)">Tamirci</h1>
+      <p class="lead font-weight-bold">Mahallem ile birlikte bütün tamir işlerinizi kolay bir şekilde herhangi bir ekstra iş gücüne gerek duymadan kolayca halledebilirsiniz.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="300x300" style="width: 300px; height: 300px;" src="{{url_for('static', filename='tamirci.png')}}" data-holder-rendered="true">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <!-- /END THE FEATURETTES -->
+
+</div>
+<!--DENEME-->
+<div class= row>
+  <div class="media col-sm" style="margin-top:5px; background-color:rgb(210, 180, 222);">
+    <img class="mr-3" src="{{url_for('static', filename='tesisat.png')}}" alt="Generic placeholder image" width="70px" height="70px" style="margin-top:60px">
+    <div class="media-body">
+      <h5 class="mt-3">Tesisatçı</h5>
+      <p>Mahallem ile birlikte Tesisat işlerinizi kolay bir şekilde herhangi bir ekstra iş gücüne gerek duymadan kolayca halledebilirsiniz. Mahallem ile birlikte Tesisat işlerinizi kolay bir şekilde herhangi bir ekstra iş gücüne gerek duymadan kolayca halledebilirsiniz.</p>
+    </div>
+  </div>
+  <div class="media col-sm" style="margin-top:5px; background-color:rgb(171, 235, 198);">
+    <img class="mr-3" src="{{url_for('static', filename='boyaci.png')}}" alt="Generic placeholder image" width="70px" height="70px" style="margin-top:60px">
+    <div class="media-body">
+      <h5 class="mt-3">Boyacı</h5>
+      <p>Mahallem ile birlikte boya badana işlerinizi kolay bir şekilde herhangi bir ekstra iş gücüne gerek duymadan kolayca halledebilirsiniz. Mahallem ile birlikte boya badana işlerinizi kolay bir şekilde herhangi bir ekstra iş gücüne gerek duymadan kolayca halledebilirsiniz.</p>
+    </div>
+  </div>
+  <div class="media col-sm" style="margin-top:5px; background-color:rgb(249, 231, 159);">
+    <img class="mr-3" src="{{url_for('static', filename='elektrikci.png')}}" alt="Generic placeholder image" width="70px" height="70px" style="margin-top:60px">
+    <div class="media-body">
+      <h5 class="mt-3">Elektrikçi</h5>
+      <p>Mahallem ile birlikte bütün elektrik işlerinizi kolay bir şekilde herhangi bir ekstra iş gücüne gerek duymadan kolayca halledebilirsiniz. Mahallem ile birlikte bütün elektrik işlerinizi kolay bir şekilde herhangi bir ekstra iş gücüne gerek duymadan kolayca halledebilirsiniz.</p>
+    </div>
+  </div>
+  <div class="media col-sm" style="margin-top:5px; background-color:rgb(237, 187, 153);">
+    <img class="mr-3" src="{{url_for('static', filename='tamirci.png')}}" alt="Generic placeholder image" width="70px" height="70px" style="margin-top:60px">
+    <div class="media-body">
+      <h5 class="mt-3">Tamirci</h5>
+      <p>Mahallem ile birlikte bütün tamir işlerinizi kolay bir şekilde herhangi bir ekstra iş gücüne gerek duymadan kolayca halledebilirsiniz. Mahallem ile birlikte bütün tamir işlerinizi kolay bir şekilde herhangi bir ekstra iş gücüne gerek duymadan kolayca halledebilirsiniz.</p>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+
+{% endblock body %}
+

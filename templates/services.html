@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Mahallem - Hizmet Al
+{% endblock title %}
+
+{% block body %}
+
+{% if masters %}
+
+<br>
+<div class="col-md-7 mx-auto text-center">
+    <h1 class= "lgAndDown:text-3xl smAndDown:text-2xl text-2xl font-medium title-font mb-4 h-36 font-weight-bold">Hizmetler</h1>
+    <hr>
+    <br>
+    <br>
+    <br>
+</div>
+
+<form action="/search" method = "post">
+  <div class="input-group col-3 mx-auto m-5">
+    <input type="text" name="keyword" class="form-control" maxlength="64" placeholder="Ör: Tamirci, Aydın, Efeler">
+    <button type="submit" class="btn btn-warning btn-sm font-weight-bold p-3">Hizmet Bul</button>
+  </div>
+</form>
+
+<br>
+
+<div class="col-md-7 mx-auto">
+  <table class="table table-striped table-dark table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"><img class="mr-3" src="{{url_for('static', filename='store.png')}}" alt="Generic placeholder image" width="32px" height="32px"></th>
+        <th scope="col">Tür</th>
+        <th scope="col">Dükkan</th>
+        <th scope="col">İl</th>
+        <th scope="col">İlçe</th>
+        <th scope="col">Mahalle</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for master in masters %}
+      <tr>
+        <th scope="row"><img class="mr-3" src="{{url_for('static', filename='store.png')}}" alt="Generic placeholder image" width="32px" height="32px"></th>
+        <td>{{master.type}}</td>
+        <td>{{master.store}}</td>
+        <td>{{master.city}}</td>
+        <td>{{master.district}}</td>
+        <td>{{master.street}} Mahallesi</td>
+        <td><a href="/services/{{master.id}}" class="btn btn-warning">Detay</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% else %}
+<div class = "alert alert-danger">Bu Sayfada henüz hizmet alabileceğiniz bir iş yeri bulunmuyor. </div>
+{% endif %}
+
+{% endblock body %}
